@@ -1,24 +1,29 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import LocationList from './components/LocationList';
 
 const cities = [
   'Buenos Aires,ar',
-  'Washington,us',
+  'Santiago de Chile,cl',
   'Bogota,col',
   'Ciudad De Mexico,mx',
   'Madrid,es',
   'Lima,pe',
 ];
 
-function App() {
+class App extends Component {
+  handleSelectedLocation = city => {
+    console.log(`handleSelectedLocation ${city}`);
+  }
+  render() {
   return (
     <div className="App">
       <header className="App-header">
       </header>
-      <LocationList cities={cities} />
+      <LocationList cities={cities} onSelectedLocation={this.handleSelectedLocation}/>
     </div>
   );
+ }
 }
 
 export default App;
