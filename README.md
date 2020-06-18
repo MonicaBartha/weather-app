@@ -6,15 +6,20 @@ Is a personal project for practice ReactJS and JavaScript.
 
 ### ReactJS
 
-componentDidMount()
+class components<br>
+componentDidMount() <br>
+componentWillRecieveProps()<br>
+prop types<br>
+keys
 
 ### JavaScript
 
-destructuring
-.map
-fetch
-promise
-setState()
+destructuring<br>
+.map<br>
+fetch<br>
+promise<br>
+setState()<br>
+template strings
 
 ### API
 
@@ -22,12 +27,14 @@ setState()
 
 ### Libreries
 
-Material UI
-Convert Units
-React Weather Icons
-React Flexbox Grid
-PropTypes
-Moment.js
+Material UI<br>
+Convert Units<br>
+React Weather Icons<br>
+React Flexbox Grid<br>
+PropTypes<br>
+Moment.js<br>
+Redux<br>
+React-Redux
 
 ## Learn More
 

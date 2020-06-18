@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Grid, Col, Row} from 'react-flexbox-grid';
 import Paper from '@material-ui/core/Paper';
+import {createStore} from 'redux';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -16,6 +17,9 @@ const cities = [
   'Madrid,es',
   'Lima,pe',
 ];
+const store = createStore( () => {}, 
+window.__REDUX_DEVTOOLS_EXTENSION__&& window.__REDUX_DEVTOOLS_EXTENSION__());
+const setCity = (value) =>  ({type: `setCity`, value});
 
 class App extends Component {
   constructor() {
@@ -25,6 +29,9 @@ class App extends Component {
   handleSelectedLocation = city => {
     this.setState({ city });
     console.log(`handleSelectedLocation ${city}`);
+    // Redux
+   
+    store.dispatch(setCity(city));
   }
   render() {
     const { city } =  this.state;

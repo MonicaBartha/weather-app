@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import transformForecast from './../services/transformForecast';
-// import ForecastItem from './ForecastItem';
+import ForecastItem from './ForecastItem';
 import './styles.css';
 
 /*
@@ -27,7 +27,17 @@ class ForecastExtended extends Component {
         this.state = { forecastData: null }
     }
     componentDidMount() {
-        const url_forecast = `${url}?q=${this.props.city}&appid=${api_key}`;
+       this.updateCity(this.props.city);
+    }
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.city !== this.props.city) {
+            this.setState({forecastData: null})
+            this.updateCity(nextProps.city)
+        }
+    }
+    
+    updateCity = city => {
+        const url_forecast = `${url}?q=${city}&appid=${api_key}`;
         fetch(url_forecast).then(
             data => (data.json())
         ).then(
@@ -38,11 +48,17 @@ class ForecastExtended extends Component {
                 this.setState({ forecastData })
             }
         );
-
     }
-    renderForecastItemDays() {
-        return "Render Items";
-      //  return days.map(day => (<ForecastItem weekDay={day} hour={10} data={data} />));
+    renderForecastItemDays(forecastData) {
+        
+      return forecastData.map( forecast => (
+          // para array de componentes hay que establecer una key
+      <ForecastItem 
+      key={`${forecast.weekDay}${forecast.hour}`}
+      weekDay={forecast.weekDay} 
+      hour={forecast.hour} 
+      data={forecast.data} 
+      />));
     }
     renderProgress = () => {
         return <h3>Cargando pronostico extendido...</h3>;
@@ -54,7 +70,7 @@ class ForecastExtended extends Component {
         <div >
             <h3 className="forecast-title">Pronóstico Extendido para {city} </h3>
             {forecastData ?
-            this.renderForecastItemDays() :
+            this.renderForecastItemDays(forecastData) :
             this.renderProgress()
             }
         </div>
