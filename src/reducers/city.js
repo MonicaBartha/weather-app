@@ -3,11 +3,8 @@ import {SET_CITY} from './../actions'
 export const city = (state = {}, action) => {
     switch (action.type) {
         case SET_CITY:
-            // ... spread operator, se desglosa/separa el estado inicial y se modifica el valor 
-            // del city a traves del action
-            return { ...state, city: action.payload }
+                return action.payload; 
             default:
-                break;
-    }
-    return state;
+                return state;   
+    }  
 }

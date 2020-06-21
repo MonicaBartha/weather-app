@@ -34,7 +34,9 @@ React Flexbox Grid<br>
 PropTypes<br>
 Moment.js<br>
 Redux<br>
-React-Redux
+React-Redux<br>
+Redux-thunk<br>
+Reselect
 
 ## Learn More
 
