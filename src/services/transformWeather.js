@@ -18,9 +18,9 @@ const getTemp = kelvin => {
             return SNOW;
         } else if (id === 800) {
             return SUN;
-        }
-        return CLOUD;
-        
+        } else {
+            return CLOUD;
+         }
     }
     const transformWeather = weather_data => {
         const { humidity, temp } = weather_data.main;

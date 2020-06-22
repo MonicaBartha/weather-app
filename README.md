@@ -36,7 +36,8 @@ Moment.js<br>
 Redux<br>
 React-Redux<br>
 Redux-thunk<br>
-Reselect
+Reselect<br>
+Lodash
 
 ## Learn More
 
